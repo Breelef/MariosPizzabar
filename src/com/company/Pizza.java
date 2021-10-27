@@ -7,6 +7,7 @@ public class Pizza {
     int pris;
     int pizzaNr;
 
+
     public Pizza(String pizzaNavn, String toppings, int pris, int pizzaNr){
         this.pizzaNavn = pizzaNavn;
         this.toppings = toppings;
@@ -24,5 +25,12 @@ public class Pizza {
         Pizza p1 = new Pizza("Lav selv","tomatsauce, ost, " + lavToppings + ", oregano", lavPris, 15);
         System.out.println(p1);
         return p1;
+    }
+    public static void seMenu(Pizza[] pizzaMenu) {
+        for (int i = 0; i < pizzaMenu.length; i++) {
+            if (pizzaMenu[i] != null) {
+                System.out.println(pizzaMenu[i]);
+            }
+        }
     }
 }
