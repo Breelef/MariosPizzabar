@@ -19,10 +19,10 @@ public class Pizza {
     public static Pizza lavPizza(Scanner input){
         System.out.println("Hvilke toppings skal pizzaen have");
         String lavToppings = input.nextLine();
+        input.nextLine();
         System.out.println("Indtast pris for pizzaen");
         int lavPris = input.nextInt();
         Pizza p15 = new Pizza("Lav selv","tomatsauce, ost, " + lavToppings + ", oregano", lavPris, 15);
-        System.out.println(p15);
         return p15;
     }
     public static void seMenu(Pizza[] pizzaMenu) {

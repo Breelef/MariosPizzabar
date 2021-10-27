@@ -38,8 +38,10 @@ public class Order {
                     PizzaNr[count] = PizzaNummer;
                     PizzaNavn[count] = "Lav Selv";
                     pizzaPris[count] = input.nextInt();
+                    System.out.println("Er du færdig?");
+                    answer = input.next();
                 }
-        }while(!answer.equalsIgnoreCase("Nej"));
+        }while(!answer.equalsIgnoreCase("Ja"));
         Order o1 = new Order(Time, PizzaNr, PizzaNavn, pizzaPris);
         System.out.println(o1);
         return o1;
