@@ -24,14 +24,21 @@ public class Order {
         String answer = "";
         int count = 0;
         do{
-            System.out.println("Hvilke pizzaer er blevet bestilt?");
-            PizzaNummer = input.nextInt();
-            PizzaNr[count] = PizzaNummer;
-            PizzaNavn[count] = pizzaMenu[PizzaNummer - 1].pizzaNavn;
-            pizzaPris[count] = pizzaMenu[PizzaNummer - 1].pris;
-            count++;
-            System.out.println("Er du færdig?");
-            answer = input.next();
+                System.out.println("Hvilke pizzaer er blevet bestilt?");
+                PizzaNummer = input.nextInt();
+                if(PizzaNummer < 15){
+                PizzaNr[count] = PizzaNummer;
+                PizzaNavn[count] = pizzaMenu[PizzaNummer - 1].pizzaNavn;
+                pizzaPris[count] = pizzaMenu[PizzaNummer - 1].pris;
+                count++;
+                System.out.println("Er du færdig?");
+                answer = input.next();
+            }else{
+                    Pizza.lavPizza(input);
+                    PizzaNr[count] = PizzaNummer;
+                    PizzaNavn[count] = "Lav Selv";
+                    pizzaPris[count] = input.nextInt();
+                }
         }while(!answer.equalsIgnoreCase("Nej"));
         Order o1 = new Order(Time, PizzaNr, PizzaNavn, pizzaPris);
         System.out.println(o1);

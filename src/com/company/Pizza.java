@@ -7,7 +7,6 @@ public class Pizza {
     int pris;
     int pizzaNr;
 
-
     public Pizza(String pizzaNavn, String toppings, int pris, int pizzaNr){
         this.pizzaNavn = pizzaNavn;
         this.toppings = toppings;
@@ -22,9 +21,9 @@ public class Pizza {
         String lavToppings = input.nextLine();
         System.out.println("Indtast pris for pizzaen");
         int lavPris = input.nextInt();
-        Pizza p1 = new Pizza("Lav selv","tomatsauce, ost, " + lavToppings + ", oregano", lavPris, 15);
-        System.out.println(p1);
-        return p1;
+        Pizza p15 = new Pizza("Lav selv","tomatsauce, ost, " + lavToppings + ", oregano", lavPris, 15);
+        System.out.println(p15);
+        return p15;
     }
     public static void seMenu(Pizza[] pizzaMenu) {
         for (int i = 0; i < pizzaMenu.length; i++) {
