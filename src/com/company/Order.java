@@ -31,11 +31,11 @@ public class Order {
                 count++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
-            }else{
+                }else{
                     Pizza.lavPizza(input, order);
                     PizzaNr[count] = PizzaNummer;
-                    PizzaNavn[count] = order[count].toppings;
-                    pizzaPris[count] = order[count].pris;
+                    PizzaNavn[count] = "Lav Selv";
+                    pizzaPris[count] = input.nextInt();
                     count++;
                     System.out.println("Er du færdig?");
                     answer = input.next();
