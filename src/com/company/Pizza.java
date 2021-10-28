@@ -19,7 +19,24 @@ public class Pizza {
         return pizzaNr + ". " + pizzaNavn + ": " + toppings + "............" + pris;
     }
 
+    public static void seMenu(Pizza[] pizzaMenu) {
+        for (int i = 0; i < pizzaMenu.length; i++) {
+            if (pizzaMenu[i] != null) {
+                System.out.println(pizzaMenu[i]);
+            }
+        }
+    }
     public static Pizza[] lavPizza(Scanner input, Pizza[] order) {
+        Pizza p15 = new Pizza("lav selv", input.nextLine(), input.nextInt(), 15);
+        for (int i = 0; i < order.length; i++) {
+            if (order[i] == null) {
+                order[i] = p15;
+            }
+        }
+        return order;
+    }
+}
+    /*public static Pizza[] lavPizza(Scanner input, Pizza[] order) {
         System.out.println("Hvilke toppings skal pizzaen have");
         String lavToppings = input.nextLine();
         input.nextLine();
@@ -32,13 +49,4 @@ public class Pizza {
             }
         }
         return order;
-    }
-
-    public static void seMenu(Pizza[] pizzaMenu) {
-        for (int i = 0; i < pizzaMenu.length; i++) {
-            if (pizzaMenu[i] != null) {
-                System.out.println(pizzaMenu[i]);
-            }
-        }
-    }
-}
+    }*/

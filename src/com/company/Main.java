@@ -5,26 +5,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
-       // Pizza.seMenu(lavPizzaMenu(pizzaMenu));
-       // Order.makeOrder(input, pizzaMenu);
+        Pizza[] order = new Pizza[10];
+        Pizza.seMenu(lavPizzaMenu(pizzaMenu));
+        Order.makeOrder(input, pizzaMenu, order);
 
-        System.out.println("Tryk 1 for at se Menu: ");
-        System.out.println("Tryk 2 for at lave en bestilling: ");
+        //Pizza.lavPizza(input, order);
 
-
-        boolean start = true;
-
-        while(start) {
-            Scanner inputPizza = new Scanner(System.in);
-            String P1 = inputPizza.nextLine();
-
-            switch (P1){
-                case "1":
-                    Pizza.seMenu(pizzaMenu);
-                case "2":
-                    Pizza.lavPizza(inputPizza,pizzaMenu);
-            }
-        }
 
 
        /* int menu = 5;

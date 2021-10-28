@@ -24,6 +24,7 @@ public class Order {
         int PizzaNummer = 0;
         String answer = "";
         int count = 0;
+        int i = 0;
         do {
             System.out.println("Hvilke pizzaer er blevet bestilt?");
             PizzaNummer = input.nextInt();
@@ -37,9 +38,10 @@ public class Order {
             } else {
                 Pizza.lavPizza(input, order);
                 PizzaNr[count] = PizzaNummer;
-                PizzaNavn[count] = "Lav Selv";
-                pizzaPris[count] = input.nextInt();
+                PizzaNavn[count] = order[i].toppings;
+                pizzaPris[count] = order[i].pris;
                 count++;
+                i++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
             }
