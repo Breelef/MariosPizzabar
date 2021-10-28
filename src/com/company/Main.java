@@ -6,7 +6,6 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
         Pizza.seMenu(lavPizzaMenu(pizzaMenu));
-        //Pizza.lavPizza(input);
         Order.makeOrder(input, pizzaMenu);
 
 

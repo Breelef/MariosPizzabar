@@ -33,7 +33,7 @@ public class Order {
                 count++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
-            }else{
+            }else if (PizzaNummer >= 15){
                     Pizza.lavPizza(input);
                     PizzaNr[count] = PizzaNummer;
                     PizzaNavn[count] = "Lav Selv";
