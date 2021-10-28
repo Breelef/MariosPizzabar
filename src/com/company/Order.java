@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.*;
 
 public class Order {
@@ -6,13 +7,15 @@ public class Order {
     int[] pizzaNr;
     String[] pizzaNavn;
     int[] pris;
-    public Order(String time, int[] pizzaNr, String[] pizzaNavn, int[] pris){
+
+    public Order(String time, int[] pizzaNr, String[] pizzaNavn, int[] pris) {
         this.time = time;
         this.pizzaNr = pizzaNr;
         this.pizzaNavn = pizzaNavn;
         this.pris = pris;
     }
-    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order){
+
+    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order) {
         System.out.println("Hvornår skal pizzaen være klar til?");
         String Time = input.nextLine();
         int[] PizzaNr = new int[50];
@@ -21,47 +24,48 @@ public class Order {
         int PizzaNummer = 0;
         String answer = "";
         int count = 0;
-        do{
-                System.out.println("Hvilke pizzaer er blevet bestilt?");
-                PizzaNummer = input.nextInt();
-                if(PizzaNummer < 15){
+        do {
+            System.out.println("Hvilke pizzaer er blevet bestilt?");
+            PizzaNummer = input.nextInt();
+            if (PizzaNummer < 15) {
                 PizzaNr[count] = PizzaNummer;
                 PizzaNavn[count] = pizzaMenu[PizzaNummer - 1].pizzaNavn;
                 pizzaPris[count] = pizzaMenu[PizzaNummer - 1].pris;
                 count++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
-                }else{
-                    Pizza.lavPizza(input, order);
-                    PizzaNr[count] = PizzaNummer;
-                    PizzaNavn[count] = "Lav Selv";
-                    pizzaPris[count] = input.nextInt();
-                    count++;
-                    System.out.println("Er du færdig?");
-                    answer = input.next();
-                }
-        }while(!answer.equalsIgnoreCase("Ja"));
+            } else {
+                Pizza.lavPizza(input, order);
+                PizzaNr[count] = PizzaNummer;
+                PizzaNavn[count] = "Lav Selv";
+                pizzaPris[count] = input.nextInt();
+                count++;
+                System.out.println("Er du færdig?");
+                answer = input.next();
+            }
+        } while (!answer.equalsIgnoreCase("Ja"));
         Order o1 = new Order(Time, PizzaNr, PizzaNavn, pizzaPris);
         System.out.println(o1);
         return o1;
     }
-    public String toString(){
+
+    public String toString() {
         String[] order = new String[10];
         String newOrder = "";
         String stringNavne = "";
         int pizzaNumre = 0;
         int pizzaPris = 0;
-        for(int i = 0; i < order.length; i++){
-            if(pizzaNavn[i] != null) {
+        for (int i = 0; i < order.length; i++) {
+            if (pizzaNavn[i] != null) {
                 stringNavne = pizzaNavn[i];
                 pizzaNumre = pizzaNr[i];
                 pizzaPris = pris[i];
                 order[i] = pizzaNumre + ". " + stringNavne + "......." + pizzaPris + "kr.";
             }
-            if(order[i] != null) {
+            if (order[i] != null) {
                 newOrder += order[i] + "\n";
             }
         }
-            return newOrder + "Klar kl: " + time;
+        return newOrder + "Klar kl: " + time;
     }
 }

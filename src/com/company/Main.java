@@ -5,10 +5,27 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
-        Pizza[] order = new Pizza[10];
-        //Pizza.lavPizza(input, order);
-        Pizza.seMenu(lavPizzaMenu(pizzaMenu));
-        Order.makeOrder(input, pizzaMenu, order);
+       // Pizza.seMenu(lavPizzaMenu(pizzaMenu));
+       // Order.makeOrder(input, pizzaMenu);
+
+        System.out.println("Tryk 1 for at se Menu: ");
+        System.out.println("Tryk 2 for at lave en bestilling: ");
+
+
+        boolean start = true;
+
+        while(start) {
+            Scanner inputPizza = new Scanner(System.in);
+            String P1 = inputPizza.nextLine();
+
+            switch (P1){
+                case "1":
+                    Pizza.seMenu(pizzaMenu);
+                case "2":
+                    Pizza.lavPizza(inputPizza,pizzaMenu);
+            }
+        }
+
 
        /* int menu = 5;
             while(menu !=4){
@@ -34,8 +51,7 @@ public class Main {
                         System.out.print("BuFu/Karstens søn + Emil (Stedsøn)");
                 }
             }*/
-    }
-
+   }
     public static Pizza[] lavPizzaMenu(Pizza[] pizzaMenu) {
         Pizza p1 = new Pizza("Vesuvio", "Tomatsauce, ost, skinke, oregano", 57, 1);
         Pizza p2 = new Pizza("Amerikaner", "Tomatsauce, ost, oksefars, oregano", 53, 2);
