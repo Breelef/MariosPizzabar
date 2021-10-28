@@ -12,11 +12,9 @@ public class Order {
         this.pizzaNavn = pizzaNavn;
         this.pris = pris;
     }
-    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu){
+    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order){
         System.out.println("Hvornår skal pizzaen være klar til?");
-        int Hour = input.nextInt();
-        int Minute = input.nextInt();
-        String Time = Hour + ":" + Minute;
+        String Time = input.nextLine();
         int[] PizzaNr = new int[50];
         String[] PizzaNavn = new String[50];
         int[] pizzaPris = new int[50];
@@ -33,11 +31,12 @@ public class Order {
                 count++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
-            }else if (PizzaNummer >= 15){
-                    Pizza.lavPizza(input);
+            }else{
+                    Pizza.lavPizza(input, order);
                     PizzaNr[count] = PizzaNummer;
-                    PizzaNavn[count] = "Lav Selv";
-                    pizzaPris[count] = input.nextInt();
+                    PizzaNavn[count] = order[count].toppings;
+                    pizzaPris[count] = order[count].pris;
+                    count++;
                     System.out.println("Er du færdig?");
                     answer = input.next();
                 }
