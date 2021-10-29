@@ -28,6 +28,7 @@ public class Order {
         do {
             System.out.println("Hvilke pizzaer er blevet bestilt?");
             PizzaNummer = input.nextInt();
+            input.nextLine();
             if (PizzaNummer < 15) {
                 PizzaNr[count] = PizzaNummer;
                 PizzaNavn[count] = pizzaMenu[PizzaNummer - 1].pizzaNavn;
