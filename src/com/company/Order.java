@@ -1,12 +1,11 @@
 package com.company;
-
 import java.util.*;
 
 public class Order {
     String time;
     int[] pizzaNr;
     String[] pizzaNavn;
-    int[] pris;
+    public static int[] pris;
 
     public Order(String time, int[] pizzaNr, String[] pizzaNavn, int[] pris) {
         this.time = time;
@@ -15,8 +14,8 @@ public class Order {
         this.pris = pris;
     }
 
-    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order) {
-        System.out.println("Hvornår skal pizzaen være klar til?");
+    public static Order[] makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order, Order[] orderlist) {
+        System.out.println("Afhentnings tidspunkt");
         String Time = input.nextLine();
         int[] PizzaNr = new int[50];
         String[] PizzaNavn = new String[50];
@@ -26,7 +25,7 @@ public class Order {
         int count = 0;
         int i = 0;
         do {
-            System.out.println("Hvilke pizzaer er blevet bestilt?");
+            System.out.println("Indtast pizza nummer til bestilling");
             PizzaNummer = input.nextInt();
             input.nextLine();
             if (PizzaNummer < 15) {
@@ -48,8 +47,25 @@ public class Order {
             }
         } while (!answer.equalsIgnoreCase("Ja"));
         Order o1 = new Order(Time, PizzaNr, PizzaNavn, pizzaPris);
-        System.out.println(o1);
-        return o1;
+        for (int k = 0; k < orderlist.length; k++) {
+            if (orderlist[k] == null) {
+                orderlist[k] = o1;
+                break;
+            }
+        }
+        return orderlist;
+    }
+    public static void printOrders(Order[] orderlist){
+        int totalPris = 0;
+        for(int i = 0; i < orderlist.length; i++){
+            if(orderlist[i] != null) {
+                System.out.println(orderlist[i]);
+            }
+            if(orderlist[i].pris[i] != 0){
+                totalPris += orderlist[i].pris[i];
+            }
+        }
+        System.out.println("Total: " + totalPris + " kr.");
     }
 
     public String toString() {

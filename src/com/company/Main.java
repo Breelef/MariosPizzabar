@@ -7,9 +7,10 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
         Pizza[] order = new Pizza[10];
+        Order[] orderlist = new Order[10];
         Pizza.seMenu(lavPizzaMenu(pizzaMenu));
-        Order.makeOrder(input, pizzaMenu, order);
-
+        Order.makeOrder(input, pizzaMenu, order, orderlist);
+        Order.printOrders(orderlist);
         //Pizza.lavPizza(input, order);
 
 
