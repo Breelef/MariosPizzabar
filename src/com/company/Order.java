@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Order {
@@ -15,7 +16,7 @@ public class Order {
         this.pris = pris;
     }
 
-    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order) {
+    public static Order makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order) throws FileNotFoundException {
         System.out.println("Hvornår skal pizzaen være klar til?");
         String Time = input.nextLine();
         int[] PizzaNr = new int[50];
@@ -48,6 +49,7 @@ public class Order {
         } while (!answer.equalsIgnoreCase("Ja"));
         Order o1 = new Order(Time, PizzaNr, PizzaNavn, pizzaPris);
         System.out.println(o1);
+        FilHaandtering.filSkriver("pizzaBestillinger/PizzaDerErBlevetBestilt.txt", PizzaNavn);
         return o1;
     }
 

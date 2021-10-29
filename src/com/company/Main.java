@@ -1,8 +1,9 @@
 package com.company;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
         Pizza[] order = new Pizza[10];
