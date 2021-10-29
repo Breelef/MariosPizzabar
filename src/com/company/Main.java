@@ -8,38 +8,33 @@ public class Main {
         Pizza[] pizzaMenu = new Pizza[14];
         Pizza[] order = new Pizza[10];
         Order[] orderlist = new Order[10];
-        Pizza.seMenu(lavPizzaMenu(pizzaMenu));
-        Order.makeOrder(input, pizzaMenu, order, orderlist);
-        Order.printOrders(orderlist);
-        //Pizza.lavPizza(input, order);
+        int menu = 0;
 
-
-
-       /* int menu = 5;
-            while(menu !=4){
-                System.out.println("Tryk 1 for se menukort");
-                System.out.println("Tryk 2 for tilføj pizza til ordre");
-                System.out.println("Tryk 3 for at lave din egen pizza");
-                System.out.println("Tryk 4 for");
-                menu = input.nextInt();
-                switch (menu){
-                    case 1:
-                    pizzaMenu();
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-                    Pizza.lavPizza(Scanner input);
-                        break;
-                    case 4:
-
-                        break;
-                    default:
-                        System.out.print("BuFu/Karstens søn + Emil (Stedsøn)");
-                }
-            }*/
-   }
+        do {
+            System.out.println("Tryk 1 for se menukort");
+            System.out.println("Tryk 2 for tilføj pizza til ordre");
+            System.out.println("Tryk 3 for at afslutte ordre");
+            System.out.println("Tryk 4 for at se nuværende bestillinger");
+            menu = input.nextInt();
+            input.nextLine();
+            switch (menu) {
+                case 1:
+                    Pizza.seMenu(lavPizzaMenu(pizzaMenu));
+                    break;
+                case 2:
+                    Order.makeOrder(input, pizzaMenu, order, orderlist);
+                    break;
+                case 3:
+                    Order.afslutOrder(orderlist, input);
+                    break;
+                case 4:
+                    Order.printOrders(orderlist);
+                    break;
+                default:
+                    System.out.print("BuFu/Karstens søn + Emil (Stedsøn)");
+            }
+        }while(menu !=6);
+    }
     public static Pizza[] lavPizzaMenu(Pizza[] pizzaMenu) {
         Pizza p1 = new Pizza("Vesuvio", "Tomatsauce, ost, skinke, oregano", 57, 1);
         Pizza p2 = new Pizza("Amerikaner", "Tomatsauce, ost, oksefars, oregano", 53, 2);

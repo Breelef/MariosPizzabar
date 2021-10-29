@@ -59,13 +59,34 @@ public class Order {
         int totalPris = 0;
         for(int i = 0; i < orderlist.length; i++){
             if(orderlist[i] != null) {
-                System.out.println(orderlist[i]);
+                System.out.println(i + 1 + ": " + orderlist[i]);
             }
             if(orderlist[i].pris[i] != 0){
                 totalPris += orderlist[i].pris[i];
             }
         }
-        System.out.println("Total: " + totalPris + " kr.");
+        System.out.println(totalPris);
+    }
+    public static Order[] afslutOrder(Order[] orderlist, Scanner input){
+        for(int i = 0; i < orderlist.length; i++) {
+            if (orderlist[i] != null) {
+                System.out.println(i + 1 + ": " + orderlist[i]);
+            }
+        }
+        System.out.println("Hvilken bestilling skal slette?");
+        int slet = input.nextInt();
+        int answer;
+        System.out.println("Tryk 1 for afslutte bestilling\nTryk 2 for at annullere bestilling");
+        answer = input.nextInt();
+        if(answer == 1){
+            //Send over til fil
+        }
+        for(int i = 1; i < orderlist.length; i++){
+            if(slet == i){
+                orderlist[slet - 1] = null;
+            }
+        }
+        return orderlist;
     }
 
     public String toString() {
@@ -88,3 +109,36 @@ public class Order {
         return newOrder + "Klar kl: " + time;
     }
 }
+/*switch(answer){
+        case 1:
+        orderlist[answer - 1] = null;
+        break;
+        case 2:
+        orderlist[answer - 1] = null;
+        break;
+        case 3:
+        orderlist[answer - 1] = null;
+        break;
+        case 4:
+        orderlist[answer - 1] = null;
+        break;
+        case 5:
+        orderlist[answer - 1] = null;
+        break;
+        case 6:
+        orderlist[answer - 1] = null;
+        break;
+        case 7:
+        orderlist[answer - 1] = null;
+        break;
+        case 8:
+        orderlist[answer - 1] = null;
+        break;
+        case 9:
+        orderlist[answer - 1] = null;
+        break;
+        case 10:
+        orderlist[answer - 1] = null;
+        break;
+default
+                break;*/
