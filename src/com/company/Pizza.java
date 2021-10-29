@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.*;
 
 public class Pizza {
@@ -27,10 +26,15 @@ public class Pizza {
         }
     }
     public static Pizza[] lavPizza(Scanner input, Pizza[] order) {
-        Pizza p15 = new Pizza("lav selv", input.nextLine(), input.nextInt(), 15);
+        System.out.println("Hvilke toppings skal pizzaen have?");
+        String toppings = input.nextLine();
+        System.out.println("Prisen for pizzaen");
+        int pris = input.nextInt();
+        Pizza p15 = new Pizza("lav selv", "tomatsauce, ost, " + toppings + ", oregano", pris, 15);
         for (int i = 0; i < order.length; i++) {
             if (order[i] == null) {
                 order[i] = p15;
+                break;
             }
         }
         return order;
