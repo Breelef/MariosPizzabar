@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Statistik {
     public void readFile() {
         try {
-            File myObj = new File("AfsluttedeBestillinger.txt");
+            File myObj = new File("AfsluttedBestillinger.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
