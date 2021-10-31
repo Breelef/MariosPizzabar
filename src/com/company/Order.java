@@ -5,7 +5,7 @@ public class Order {
     String time;
     int[] pizzaNr;
     String[] pizzaNavn;
-    public static int[] pris;
+    int[] pris;
 
     public Order(String time, int[] pizzaNr, String[] pizzaNavn, int[] pris) {
         this.time = time;
@@ -14,7 +14,7 @@ public class Order {
         this.pris = pris;
     }
 
-    public static Order[] makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order, Order[] orderlist) {
+    public static Order[] makeOrder(Scanner input, Pizza[] pizzaMenu, Pizza[] order, Order[] orderlist, int i) {
         System.out.println("Afhentnings tidspunkt");
         String Time = input.nextLine();
         int[] PizzaNr = new int[50];
@@ -23,7 +23,6 @@ public class Order {
         int PizzaNummer = 0;
         String answer = "";
         int count = 0;
-        int i = 0;
         do {
             System.out.println("Indtast pizza nummer til bestilling");
             PizzaNummer = input.nextInt();
@@ -32,19 +31,18 @@ public class Order {
                 PizzaNr[count] = PizzaNummer;
                 PizzaNavn[count] = pizzaMenu[PizzaNummer - 1].pizzaNavn;
                 pizzaPris[count] = pizzaMenu[PizzaNummer - 1].pris;
-                count++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
             } else {
-                Pizza.lavPizza(input, order);
+                Pizza.lavPizza(input, order, i);
                 PizzaNr[count] = PizzaNummer;
                 PizzaNavn[count] = order[i].toppings;
                 pizzaPris[count] = order[i].pris;
-                count++;
                 i++;
                 System.out.println("Er du færdig?");
                 answer = input.next();
             }
+            count++;
         } while (!answer.equalsIgnoreCase("Ja"));
         Order o1 = new Order(Time, PizzaNr, PizzaNavn, pizzaPris);
         for (int k = 0; k < orderlist.length; k++) {
@@ -55,17 +53,18 @@ public class Order {
         }
         return orderlist;
     }
-    public static void printOrders(Order[] orderlist){
+    public static void printOrders(Order[] orderlist) {
         int totalPris = 0;
-        for(int i = 0; i < orderlist.length; i++){
-            if(orderlist[i] != null) {
+        for (int i = 0; i < orderlist.length; i++) {
+            if (orderlist[i] != null) {
+                for (int k = 0; k < orderlist[i].pris[k]; k++) {
+                    totalPris += orderlist[i].pris[k];
+                }
                 System.out.println(i + 1 + ": " + orderlist[i]);
-            }
-            if(orderlist[i].pris[i] != 0){
-                totalPris += orderlist[i].pris[i];
+                System.out.println("Total pris: " + totalPris);
+                totalPris = 0;
             }
         }
-        System.out.println(totalPris);
     }
     public static Order[] afslutOrder(Order[] orderlist, Scanner input){
         for(int i = 0; i < orderlist.length; i++) {
@@ -73,7 +72,7 @@ public class Order {
                 System.out.println(i + 1 + ": " + orderlist[i]);
             }
         }
-        System.out.println("Hvilken bestilling skal slette?");
+        System.out.println("Hvilken bestilling skal slettes?");
         int slet = input.nextInt();
         int answer;
         System.out.println("Tryk 1 for afslutte bestilling\nTryk 2 for at annullere bestilling");

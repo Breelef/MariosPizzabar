@@ -25,18 +25,20 @@ public class Pizza {
             }
         }
     }
-    public static Pizza[] lavPizza(Scanner input, Pizza[] order) {
+    public static Pizza[] lavPizza(Scanner input, Pizza[] order, int count) {
         System.out.println("Hvilke toppings skal pizzaen have?");
         String toppings = input.nextLine();
         System.out.println("Prisen for pizzaen");
         int pris = input.nextInt();
         Pizza p15 = new Pizza("lav selv", "tomatsauce, ost, " + toppings + ", oregano", pris, 15);
-        for (int i = 0; i < order.length; i++) {
+        /*for (int i = 0; i < order.length; i++) {
             if (order[i] == null) {
                 order[i] = p15;
                 break;
             }
-        }
+        }*/
+        order[count] = p15;
+        count++;
         return order;
     }
 }

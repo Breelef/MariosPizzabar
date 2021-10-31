@@ -22,4 +22,8 @@ public class  FilHaandtering {
 
         ps.close();
     }
+    public void statistik(){
+        Statistik s = new Statistik();
+        s.readFile();
+    }
 }

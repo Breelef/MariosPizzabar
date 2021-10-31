@@ -6,10 +6,11 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
-        Pizza[] order = new Pizza[10];
-        Order[] orderlist = new Order[10];
-        int menu = 0;
-
+        Pizza[] order = new Pizza[20];
+        Order[] orderlist = new Order[20];
+        int countOrder = 0;
+        int menu;
+        lavPizzaMenu(pizzaMenu);
         do {
             System.out.println("Tryk 1 for se menukort");
             System.out.println("Tryk 2 for tilføj pizza til ordre");
@@ -19,10 +20,10 @@ public class Main {
             input.nextLine();
             switch (menu) {
                 case 1:
-                    Pizza.seMenu(lavPizzaMenu(pizzaMenu));
+                    Pizza.seMenu(pizzaMenu);
                     break;
                 case 2:
-                    Order.makeOrder(input, pizzaMenu, order, orderlist);
+                    Order.makeOrder(input, pizzaMenu, order, orderlist, countOrder);
                     break;
                 case 3:
                     Order.afslutOrder(orderlist, input);
