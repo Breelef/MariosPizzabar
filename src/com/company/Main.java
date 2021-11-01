@@ -1,12 +1,11 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
 
 package com.company;
 
+import java.io.*;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+
 
 public class Main {
     public Main() {
@@ -26,6 +25,7 @@ public class Main {
             System.out.println("Tryk 2 for tilføj pizza til ordre");
             System.out.println("Tryk 3 for at afslutte ordre");
             System.out.println("Tryk 4 for at se nuværende bestillinger");
+            System.out.println("Tryk 5 for at se omsætning");
             menu = input.nextInt();
             input.nextLine();
             switch(menu) {
@@ -40,6 +40,9 @@ public class Main {
                     break;
                 case 4:
                     Order.printOrders(orderlist);
+                    break;
+                case 5:
+                    Statistik.getStats();
                     break;
                 default:
                     System.out.print("BuFu/Karstens søn + Emil (Stedsøn)");
