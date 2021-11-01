@@ -1,16 +1,26 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.company;
+
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
+    public Main() {
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         Pizza[] pizzaMenu = new Pizza[14];
         Pizza[] order = new Pizza[20];
         Order[] orderlist = new Order[20];
         int countOrder = 0;
-        int menu;
         lavPizzaMenu(pizzaMenu);
+
+        int menu;
         do {
             System.out.println("Tryk 1 for se menukort");
             System.out.println("Tryk 2 for tilføj pizza til ordre");
@@ -18,7 +28,7 @@ public class Main {
             System.out.println("Tryk 4 for at se nuværende bestillinger");
             menu = input.nextInt();
             input.nextLine();
-            switch (menu) {
+            switch(menu) {
                 case 1:
                     Pizza.seMenu(pizzaMenu);
                     break;
@@ -26,7 +36,7 @@ public class Main {
                     Order.makeOrder(input, pizzaMenu, order, orderlist, countOrder);
                     break;
                 case 3:
-                    Order.afslutOrder(orderlist, input);
+                    orderlist = Order.afslutOrder(orderlist, input);
                     break;
                 case 4:
                     Order.printOrders(orderlist);
@@ -34,8 +44,10 @@ public class Main {
                 default:
                     System.out.print("BuFu/Karstens søn + Emil (Stedsøn)");
             }
-        }while(menu !=6);
+        } while(menu != 6);
+
     }
+
     public static Pizza[] lavPizzaMenu(Pizza[] pizzaMenu) {
         Pizza p1 = new Pizza("Vesuvio", "Tomatsauce, ost, skinke, oregano", 57, 1);
         Pizza p2 = new Pizza("Amerikaner", "Tomatsauce, ost, oksefars, oregano", 53, 2);

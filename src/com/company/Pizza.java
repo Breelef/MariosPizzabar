@@ -1,5 +1,11 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.company;
-import java.util.*;
+
+import java.util.Scanner;
 
 public class Pizza {
     String pizzaNavn;
@@ -15,44 +21,26 @@ public class Pizza {
     }
 
     public String toString() {
-        return pizzaNr + ". " + pizzaNavn + ": " + toppings + "............" + pris;
+        return this.pizzaNr + ". " + this.pizzaNavn + ": " + this.toppings + "............" + this.pris;
     }
 
     public static void seMenu(Pizza[] pizzaMenu) {
-        for (int i = 0; i < pizzaMenu.length; i++) {
+        for(int i = 0; i < pizzaMenu.length; ++i) {
             if (pizzaMenu[i] != null) {
                 System.out.println(pizzaMenu[i]);
             }
         }
+
     }
+
     public static Pizza[] lavPizza(Scanner input, Pizza[] order, int count) {
         System.out.println("Hvilke toppings skal pizzaen have?");
         String toppings = input.nextLine();
         System.out.println("Prisen for pizzaen");
         int pris = input.nextInt();
         Pizza p15 = new Pizza("lav selv", "tomatsauce, ost, " + toppings + ", oregano", pris, 15);
-        /*for (int i = 0; i < order.length; i++) {
-            if (order[i] == null) {
-                order[i] = p15;
-                break;
-            }
-        }*/
         order[count] = p15;
-        count++;
+        ++count;
         return order;
     }
 }
-    /*public static Pizza[] lavPizza(Scanner input, Pizza[] order) {
-        System.out.println("Hvilke toppings skal pizzaen have");
-        String lavToppings = input.nextLine();
-        input.nextLine();
-        System.out.println("Indtast pris for pizzaen");
-        int lavPris = input.nextInt();
-        Pizza p15 = new Pizza("Lav selv", "tomatsauce, ost, " + lavToppings + ", oregano", lavPris, 15);
-        for (int i = 0; i < order.length; i++) {
-            if (order[i] == null) {
-                order[i] = p15;
-            }
-        }
-        return order;
-    }*/
