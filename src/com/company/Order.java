@@ -74,7 +74,7 @@ public class Order {
                 }
 
                 System.out.println(i + 1 + ": " + orderlist[i]);
-                System.out.println("Total pris: " + totalPris);
+                System.out.println("Total pris: " + totalPris + "\n");
                 totalPris = 0;
             }
         }

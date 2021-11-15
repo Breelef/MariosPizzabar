@@ -20,7 +20,7 @@ public class FilHaandtering {
         fileWriter.close();
     }
 
-    public static void filSkriver(String filNavn, String[] data) throws FileNotFoundException {
+   /* public static void filSkriver(String filNavn, String[] data) throws FileNotFoundException {
         File file = new File(filNavn);
         PrintStream ps = new PrintStream(new FileOutputStream(file, true));
         data = (String[])Arrays.stream(data).filter((orderSkriver) -> {
@@ -36,5 +36,5 @@ public class FilHaandtering {
     public void statistik() {
         Statistik s = new Statistik();
         s.readFile();
-    }
+    }*/
 }
